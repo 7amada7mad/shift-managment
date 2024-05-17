@@ -12,7 +12,7 @@ POST metoden skickas till följande URI:
 ```
 localhost:8080/shifts
 ```
-Body ska innehålla följande format:
+Body ska innehålla följande format för att skapa flera skift:
 ```
 {
     "startTime": "07:00",
@@ -21,6 +21,17 @@ Body ska innehålla följande format:
     "numberOfWeeks" : "4",
     "daysInput" : "[TUESDAY, FRIDAY]",
     "startingWeek": "20"
+}
+```
+För att skapa ett enda skift:
+```
+{
+    
+    "startTime": "07:00",
+    "endTime": "18:00",
+    "shiftType": "oneSingleShift",
+    "shiftDate": "2024-05-10"
+    
 }
 ```
 GET metoden skickas med ett tilläg för att avgöra om man vill ha alla skift sorterade eller ej:
