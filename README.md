@@ -6,7 +6,32 @@ Detta är en Spring Boot applikation för hantering av skift. Applikationen leve
 Applikationen har en enda endpoint för skapandet av skift och baserat på variablerna som skickas med i förfrågans 'Body' kommer en lämplig 'command' att köras.
 Att hämta alla skift tar en sträng från @PathVariable för att avgöra om användaren vill ha skiften sorterade eller ej.
 
-
+## Postman HTTP-förfrågningar
+Fölande är de typerna av 'Body'-innehåll man skicka till API:n
+POST metoden skickas till följande URI:
+```
+localhost:8080/shifts
+```
+Body ska innehålla följande format:
+```
+{
+    "startTime": "07:00",
+    "endTime": "18:00",
+    "shiftType": "recurringMultipleShifts",
+    "numberOfWeeks" : "4",
+    "daysInput" : "[TUESDAY, FRIDAY]",
+    "startingWeek": "20"
+}
+```
+GET metoden skickas med ett tilläg för att avgöra om man vill ha alla skift sorterade eller ej:
+**Sorterade**:
+```
+localhost:8080/shifts/sorted
+```
+**Ej Sorterade**:
+```
+localhost:8080/shifts/unsorted
+```
 
 ##  Databas-Konfigurering
 För att konfigurera databasen, följ dessa steg:
@@ -60,6 +85,7 @@ END $$
 DELIMITER ;
 ```
 3. **Uppdatera 'application.properties' filen med dina MySQL-databas referenser**:
+``` 
 spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.generate-ddl=true
 spring.jpa.properties.hibernate.show_sql=true
@@ -67,7 +93,7 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3306/shiftmanagement
 spring.datasource.username=shift_user
 spring.datasource.password=password
-
+```
 
 4. **När applikationen startas och endast då, kalla på vår nyskapade stored procedure**:
  ```sql
