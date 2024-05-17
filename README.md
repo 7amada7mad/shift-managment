@@ -5,6 +5,11 @@ Spring boot applikation för hantering av skift
 Detta är en Spring Boot applikation för hantering av skift. Applikationen levererar RESTful API endpoints för skapande och läsning av skift. 
 Applikationen har en enda endpoint för skapandet av skift och baserat på variablerna som skickas med i förfrågans 'Body' kommer en lämplig 'command' att köras.
 Att hämta alla skift tar en sträng från @PathVariable för att avgöra om användaren vill ha skiften sorterade eller ej.
+## Design patterns och algoritmer
+Command pattern - Factory pattern - Builder pattern och Merge Sort algoritm förekommer i applikationen.
+Command med factory patterns gör att oavset formen på det nya skiftet kan man skapa nya commands som är anppasde för de nya formerna av skift.
+Builder method gör att skapande av Shift objektet blir enklare om vissa saker inte är inkluderade.
+Merge sort är en kraftfull algoritm som kommer att sortera skift efter datum speciellt om databasen kommer innehålla flera tusen tals skift till många anställda.
 
 ## Postman HTTP-förfrågningar
 Fölande är de typerna av 'Body'-innehåll man skicka till API:n
